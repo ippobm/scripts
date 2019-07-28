@@ -1,0 +1,50 @@
+# -----------------------------------------------------------------
+# Instal Java 8 on Ubuntu
+# -----------------------------------------------------------------
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install openjdk-8-jre:i386
+
+
+
+# -----------------------------------------------------------------
+# Select Java 8 as default
+# -----------------------------------------------------------------
+sudo update-alternatives --config java
+
+
+
+# -----------------------------------------------------------------
+# Download TeamCity 2019
+# -----------------------------------------------------------------
+
+sudo wget --no-check-certificate "https://download.jetbrains.com/teamcity/TeamCity-2019.1.1.tar.gz"
+sudo tar -zxf "TeamCity-2019.1.1.tar.gz"
+sudo rm "TeamCity-2019.1.1.tar.gz"
+
+
+
+# ----------------------------------------------------------------- 
+# Setting up TeamCity start service
+# -----------------------------------------------------------------
+
+# 1. Create teamcity.service
+sudo touch /etc/systemd/system/teamcity.service
+
+[Unit]
+Description=TeamCity Server 2019
+After=network.target
+
+[Service]
+ExecStart=/home/ubuntu/TeamCity/bin/teamcity-server.sh start
+Type=forking
+PIDFile=/home/ubuntu/TeamCity/logs/teamcity.pid
+
+[Install]
+WantedBy=multi-user.target
+
+# 2. Load changes
+sudo systemctl daemon-reload
+
+# 3. Enable service
+sudo systemctl enable teamcity.service
