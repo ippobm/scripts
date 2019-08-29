@@ -48,3 +48,17 @@ sudo systemctl daemon-reload
 
 # 3. Enable service
 sudo systemctl enable teamcity.service
+
+
+# ----------------------------------------------------------------- 
+# Setting up DNS
+# -----------------------------------------------------------------
+
+# 1. Create A record pointing to VM's public IP
+A     subdomain     public_ip
+
+# 2. Update /etc/hostname
+sudo hostnamectl set-hostname subdomain.domain
+
+# 3. Update /etc/hosts
+127.0.0.1 subdomain.domain
