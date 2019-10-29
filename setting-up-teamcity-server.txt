@@ -49,6 +49,19 @@ sudo systemctl daemon-reload
 # 3. Enable service
 sudo systemctl enable teamcity.service
 
+# ----------------------------------------------------------------- 
+# Set up MySQL
+# -----------------------------------------------------------------
+
+sudo apt-get update
+sudo apt-get install mysql-server
+sudo mysql_secure_installation utility
+
+# Start the MySQL service
+sudo systemctl start mysql
+
+# Launch at reboot
+sudo systemctl enable mysql
 
 # ----------------------------------------------------------------- 
 # Setting up DNS
