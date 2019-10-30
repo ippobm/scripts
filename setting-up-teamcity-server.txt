@@ -46,7 +46,10 @@ WantedBy=multi-user.target
 # 2. Load changes
 sudo systemctl daemon-reload
 
-# 3. Enable service
+# 3. Start TeamCity service
+sudo systemctl start teamcity.service
+
+# 4. Launch at reboot
 sudo systemctl enable teamcity.service
 
 # ----------------------------------------------------------------- 
