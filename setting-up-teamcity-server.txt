@@ -1,18 +1,9 @@
 # -----------------------------------------------------------------
 # Instal Java 8 on Ubuntu
 # -----------------------------------------------------------------
-sudo dpkg --add-architecture i386
+
 sudo apt update
-sudo apt install openjdk-8-jre:i386
-
-
-
-# -----------------------------------------------------------------
-# Select Java 8 as default
-# -----------------------------------------------------------------
-sudo update-alternatives --config java
-
-
+sudo apt-get install openjdk-8-jre
 
 # -----------------------------------------------------------------
 # Download TeamCity 2019
@@ -21,8 +12,6 @@ sudo update-alternatives --config java
 sudo wget --no-check-certificate "https://download.jetbrains.com/teamcity/TeamCity-2019.1.1.tar.gz"
 sudo tar -zxf "TeamCity-2019.1.1.tar.gz"
 sudo rm "TeamCity-2019.1.1.tar.gz"
-
-
 
 # ----------------------------------------------------------------- 
 # Setting up TeamCity start service
@@ -56,7 +45,6 @@ sudo systemctl enable teamcity.service
 # Set up MySQL
 # -----------------------------------------------------------------
 
-sudo apt-get update
 sudo apt-get install mysql-server
 sudo mysql_secure_installation utility
 
