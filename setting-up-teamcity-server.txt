@@ -14,12 +14,12 @@ sudo tar -zxf "TeamCity-2019.1.1.tar.gz"
 sudo rm "TeamCity-2019.1.1.tar.gz"
 
 # ----------------------------------------------------------------- 
-# Setting up TeamCity start service
+# 1. Set up TeamCity start service
 # -----------------------------------------------------------------
 
-# 1. Create teamcity.service
-sudo touch /etc/systemd/system/teamcity.service
+# 1. Create teamcity.service configuration file
 
+sudo cat <<EOT >> /etc/systemd/system/teamcity.service
 [Unit]
 Description=TeamCity Server 2019
 After=network.target
@@ -31,7 +31,7 @@ PIDFile=/home/ubuntu/TeamCity/logs/teamcity.pid
 
 [Install]
 WantedBy=multi-user.target
-
+EOT
 
 # 2. Load changes
 sudo systemctl daemon-reload
@@ -39,7 +39,7 @@ sudo systemctl daemon-reload
 # 3. Start TeamCity service
 sudo systemctl start teamcity.service
 
-# 4. Launch at reboot
+# 4. Enable service on boot
 sudo systemctl enable teamcity.service
 
 # ----------------------------------------------------------------- 
