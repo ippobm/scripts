@@ -18,6 +18,7 @@ sudo rm "TeamCity-2019.1.5.tar.gz"
 # -----------------------------------------------------------------
 
 # 1. Create teamcity.service configuration file
+sudo touch /etc/systemd/system/teamcity.service
 sudo vim /etc/systemd/system/teamcity.service
 [Unit]
 Description=TeamCity Server 2019
