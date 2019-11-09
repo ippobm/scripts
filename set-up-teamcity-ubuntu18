@@ -75,3 +75,20 @@ sudo hostnamectl set-hostname subdomain.domain
 
 # 3. Update /etc/hosts
 127.0.0.1 subdomain.domain
+
+# ----------------------------------------------------------------- 
+# Setting up NGINX
+# -----------------------------------------------------------------
+
+# 1. Create conf file
+sudo touch /etc/nginx/conf.d/teamcity.conf
+
+# 2. Define server configuration
+server {
+	listen 80;
+	listen [::]:80;
+	server_name myapp.com;
+	location / {
+		proxy_pass http://localhost:8111/;
+	}
+}
