@@ -1,0 +1,77 @@
+# -----------------------------------------------------------------
+# Instal Java 8 on Ubuntu
+# -----------------------------------------------------------------
+
+sudo apt update
+sudo apt-get install openjdk-8-jre
+
+# -----------------------------------------------------------------
+# Download TeamCity 2019
+# -----------------------------------------------------------------
+
+sudo wget --no-check-certificate "https://download.jetbrains.com/teamcity/TeamCity-2019.1.1.tar.gz"
+sudo tar -zxf "TeamCity-2019.1.1.tar.gz"
+sudo rm "TeamCity-2019.1.1.tar.gz"
+
+# ----------------------------------------------------------------- 
+# Set up TeamCity start service
+# -----------------------------------------------------------------
+
+# 1. Create teamcity.service configuration file
+sudo cat <<EOT >> /etc/systemd/system/teamcity.service
+[Unit]
+Description=TeamCity Server 2019
+After=network.target
+
+[Service]
+ExecStart=/home/ubuntu/TeamCity/bin/teamcity-server.sh start
+Type=forking
+PIDFile=/home/ubuntu/TeamCity/logs/teamcity.pid
+
+[Install]
+WantedBy=multi-user.target
+EOT
+
+# 2. Load changes
+sudo systemctl daemon-reload
+
+# 3. Start TeamCity service
+sudo systemctl start teamcity.service
+
+# 4. Enable service on boot
+sudo systemctl enable teamcity.service
+
+# ----------------------------------------------------------------- 
+# Set up MySQL
+# -----------------------------------------------------------------
+
+# 1. Install MySQL
+sudo apt-get install mysql-server
+
+# 2. Config MySQL
+sudo mysql_secure_installation utility
+
+# 3. Start the MySQL service
+sudo systemctl start mysql
+
+# 4. Enable service on boot
+sudo systemctl enable mysql
+
+# 5. Create TeamCity database and user
+sudo mysql
+CREATE DATABASE teamcity;
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON teamcity.* TO 'username'@'localhost';
+
+# ----------------------------------------------------------------- 
+# Setting up DNS
+# -----------------------------------------------------------------
+
+# 1. Create A record pointing to VM's public IP
+A     subdomain     public_ip
+
+# 2. Update /etc/hostname
+sudo hostnamectl set-hostname subdomain.domain
+
+# 3. Update /etc/hosts
+127.0.0.1 subdomain.domain
