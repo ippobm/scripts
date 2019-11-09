@@ -18,7 +18,7 @@ sudo rm "TeamCity-2019.1.5.tar.gz"
 # -----------------------------------------------------------------
 
 # 1. Create teamcity.service configuration file
-sudo cat <<EOT >> /etc/systemd/system/teamcity.service
+sudo vim /etc/systemd/system/teamcity.service
 [Unit]
 Description=TeamCity Server 2019
 After=network.target
@@ -30,7 +30,6 @@ PIDFile=/home/ubuntu/TeamCity/logs/teamcity.pid
 
 [Install]
 WantedBy=multi-user.target
-EOT
 
 # 2. Load changes
 sudo systemctl daemon-reload
