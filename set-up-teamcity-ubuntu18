@@ -67,10 +67,13 @@ GRANT ALL PRIVILEGES ON teamcity.* TO 'username'@'localhost';
 # Setting up NGINX
 # -----------------------------------------------------------------
 
-# 1. Change nginx.conf file
+# 1. Install NGINX
+sudo apt install nginx
+
+# 2. Change nginx.conf file
 sudo vim /etc/nginx/nginx.conf
 
-# 2. Define server configuration
+# 3. Define server configuration
 http {
     # ... default settings here
     proxy_read_timeout     1200;
