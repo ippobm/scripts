@@ -11,20 +11,27 @@ sudo apt-get update && sudo apt-get install elasticsearch
 sudo vim /etc/elasticsearch/elasticsearch.yml
 network.host: 0.0.0.0
 discovery.type: single-node
+xpack.security.enabled: true
 
-# 5. Configure Elasticsearch to start automatically when the system boots up
+# 5. Enable Authentication
+sudo /usr/share/elasticsearch/bin/elasticsearch-keystore add "bootstrap.password"
+
+# 6. Configure Elasticsearch to start automatically when the system boots up
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service
 sudo systemctl start elasticsearch.service
 
-# 6. Install Kibana
+# 7. Install Kibana
 sudo apt-get install kibana
 
-# 7. Configuring Kibana via config file
+# 8. Configuring Kibana via config file
 sudo vim /etc/kibana/kibana.yml
 server.host: 0.0.0.0
+elasticsearch.username: "elastic"
+elasticsearch.password: "_____PASSWORD_SET_ON_STEP_7_____"
 
-# 8. Configure Kibana to start automatically when the system boots up
+# 9. Configure Kibana to start automatically when the system boots up
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 sudo systemctl start kibana.service
+
