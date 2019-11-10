@@ -20,12 +20,11 @@ sudo systemctl start elasticsearch.service
 # 6. Install Kibana
 sudo apt-get install kibana
 
-# 7. Configure Kibana to start automatically when the system boots up
-sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl enable kibana.service
-sudo systemctl start kibana.service
-
-# 8. Configuring Kibana via config file
+# 7. Configuring Kibana via config file
 sudo vim /etc/kibana/kibana.yml
 server.host: 0.0.0.0
 
+# 8. Configure Kibana to start automatically when the system boots up
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service
+sudo systemctl start kibana.service
