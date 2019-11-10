@@ -14,7 +14,8 @@ discovery.type: single-node
 xpack.security.enabled: true
 
 # 5. Enable Authentication
-sudo /usr/share/elasticsearch/bin/elasticsearch-keystore add "bootstrap.password"
+sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
+# sudo /usr/share/elasticsearch/bin/elasticsearch-keystore add "bootstrap.password"
 
 # 6. Configure Elasticsearch to start automatically when the system boots up
 sudo /bin/systemctl daemon-reload
