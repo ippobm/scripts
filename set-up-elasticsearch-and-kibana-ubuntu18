@@ -29,17 +29,3 @@ sudo systemctl start kibana.service
 sudo vim /etc/kibana/kibana.yml
 server.host: 0.0.0.0
 
-# 9. Create NGINX Reverse Proxy
-sudo touch /etc/nginx/conf.d/kibana.conf
-sudo vim /etc/nginx/conf.d/kibana.conf
-
-server {
-	listen 80;
-	server_name kibana.ippo.space;
-	location / {
-		proxy_pass http://localhost:5601/;
-	}
-}
-
-sudo systemctl restart nginx
-
