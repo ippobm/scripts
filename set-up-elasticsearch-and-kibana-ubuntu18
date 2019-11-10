@@ -28,7 +28,7 @@ sudo apt-get install kibana
 sudo vim /etc/kibana/kibana.yml
 server.host: 0.0.0.0
 elasticsearch.username: "elastic"
-elasticsearch.password: "_____PASSWORD_SET_ON_STEP_7_____"
+elasticsearch.password: "_____PASSWORD_SET_ON_STEP_5_____"
 
 # 9. Configure Kibana to start automatically when the system boots up
 sudo /bin/systemctl daemon-reload
