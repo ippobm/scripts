@@ -67,8 +67,10 @@ GRANT ALL PRIVILEGES ON teamcity.* TO 'username'@'localhost';
 # Setting up NGINX
 # -----------------------------------------------------------------
 
-# 1. Install NGINX
+# 1. Install NGINX and enable service on boot
 sudo apt install nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
 
 # 2. Change nginx.conf file
 sudo vim /etc/nginx/nginx.conf
@@ -100,3 +102,6 @@ http {
         }
     }
 }
+
+# 4. Restart NGINX
+sudo systemctl restart nginx
