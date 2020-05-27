@@ -31,6 +31,10 @@ sudo apt-get update -y
 ## Install rabbitmq-server and its dependencies
 sudo apt-get install rabbitmq-server -y --fix-missing
 
+# rabbitmqctl add_user should be used to create a user, 
+# rabbitmqctl set_permissions to grant the user the desired permissions and finally, 
+# rabbitmqctl set_user_tags should be used to give the user management UI access permissions.
+
 # Create admin user
 sudo rabbitmqctl add_user admin vagrant
 
