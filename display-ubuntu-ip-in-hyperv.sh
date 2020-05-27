@@ -7,3 +7,5 @@ hv_kvp_daemon
 hv_set_ifconfig
 hv_vss_daemon
 hv_get_dns_info
+
+sudo shutdown -r now
