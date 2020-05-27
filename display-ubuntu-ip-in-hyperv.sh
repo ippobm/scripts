@@ -1,5 +1,5 @@
 sudo apt install linux-cloud-tools-common
-sudo apt install linux-tools-generic
+sudo apt install linux-tools-generic -y
 sudo apt install linux-cloud-tools-generic
 
 hv_fcopy_daemon
