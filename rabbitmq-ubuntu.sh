@@ -30,3 +30,18 @@ sudo apt-get update -y
 
 ## Install rabbitmq-server and its dependencies
 sudo apt-get install rabbitmq-server -y --fix-missing
+
+# Create admin user
+rabbitmqctl add_user admin vagrant
+
+# Tag the user with "administrator" for full management UI and HTTP API access
+rabbitmqctl set_user_tags admin administrator
+
+# Granting Permissions to a User
+# First ".*" for read permission on every entity
+# Second ".*" for write permission on every entity
+# Third ".*" for configure permission on every entity
+rabbitmqctl set_permissions -p "/" "admin" ".*" ".*" ".*"
+
+# Install Management Plugin
+rabbitmq-plugins enable rabbitmq_management
