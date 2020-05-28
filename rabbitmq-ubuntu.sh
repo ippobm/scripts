@@ -1,9 +1,5 @@
 #!/bin/sh
 
-## If sudo is not available on the system,
-## uncomment the line below to install it
-# apt-get install -y sudo
-
 sudo apt-get update -y
 
 ## Install prerequisites
