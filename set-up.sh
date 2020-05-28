@@ -13,7 +13,7 @@ sudo apt-get install curl gnupg -y
 curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | sudo apt-key add -
 
 ## Install apt HTTPS transport
-sudo apt-get install apt-transport-https
+sudo apt-get install apt-transport-https -y
 
 ## Add Bintray repositories that provision latest RabbitMQ and Erlang 21.x releases
 sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list <<EOF
