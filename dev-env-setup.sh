@@ -50,7 +50,7 @@ sudo rabbitmqctl set_permissions -p "/" "admin" ".*" ".*" ".*"
 # Install RabbitMQ Management Plugin
 ###################################################
 
-sudo rabbitmq-plugins enable rabbitmq_management
+rabbitmq-plugins enable rabbitmq_management
 
 ###################################################
 # Install git
