@@ -121,6 +121,7 @@ sudo apt install pgadmin4 -y
 
 sudo -u postgres createuser ippo --superuser --createdb --echo 
 sudo -u postgres psql -c "ALTER USER ippo PASSWORD '123'"
+sudo -u postgres psql -c "CREATE DATABASE backend"
 
 ###################################################
 # Install Nokogiri
