@@ -38,5 +38,10 @@ sudo apt-get install libgmp-dev
 sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
 gem install nokogiri
 
+# Install Bundler
 gem install bundler
+bundle update
+
+# Install Rails
 gem install rails -v 5.2.4.3
+rbenv rehash
