@@ -2,7 +2,11 @@
 sudo apt install git -y
 
 # Install PostgreSQL
-sudo apt install postgresql postgresql-contrib libpq-dev -y	
+sudo apt install postgresql postgresql-contrib libpq-dev -y
+
+# Create PostgreSQL user
+sudo -u postgres createuser vagrant --superuser --createdb --echo 
+sudo -u postgres psql -c "ALTER USER vagrant PASSWORD 'vagrant'"
 
 # Install Redis
 sudo apt install redis-server -y
