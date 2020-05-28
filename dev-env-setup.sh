@@ -1,5 +1,3 @@
-#!/bin/sh
-
 ###################################################
 # Install RabbitMQ
 ###################################################
@@ -15,7 +13,7 @@ sudo apt-get install curl gnupg -y
 curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | sudo apt-key add -
 
 ## Install apt HTTPS transport
-sudo apt-get install apt-transport-https -y
+sudo apt-get install apt-transport-https
 
 ## Add Bintray repositories that provision latest RabbitMQ and Erlang 21.x releases
 sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list <<EOF
@@ -36,7 +34,6 @@ sudo apt-get install rabbitmq-server -y --fix-missing
 # rabbitmqctl add_user should be used to create a user, 
 # rabbitmqctl set_permissions to grant the user the desired permissions and finally, 
 # rabbitmqctl set_user_tags should be used to give the user management UI access permissions.
-
 # Create admin user
 sudo rabbitmqctl add_user admin vagrant
 
