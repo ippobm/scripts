@@ -78,8 +78,8 @@ rvm install 2.6.6
 rvm use 2.6.6 --default
 
 # Install Nokogiri
-sudo apt-get install libgmp-dev
-sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
+sudo apt-get install libgmp-dev -y
+sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev -y
 gem install nokogiri
 
 gem install bundler
