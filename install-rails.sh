@@ -26,9 +26,10 @@ rvm install 2.6.6
 rvm use 2.6.6 --default
 
 gem install bundler
-gem install rails -v 5.2.4.3
 
 # Install Nokogiri
 sudo apt-get install libgmp-dev
 sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
 gem install nokogiri
+
+gem install rails -v 5.2.4.3
