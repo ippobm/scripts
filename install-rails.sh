@@ -1,6 +1,9 @@
 # Install git
 sudo apt install git -y
 
+# Install PostgreSQL
+apt-get install postgresql-9.6 postgresql-contrib-9.6 libpq-dev
+
 # Install Redis
 sudo apt install redis-server -y
 
