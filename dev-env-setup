@@ -78,17 +78,12 @@ sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-
 ###################################################
 
 cd
-sudo git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec $SHELL
-
-sudo git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-exec $SHELL
-
-rbenv install 2.6.6
-rbenv global 2.6.6
+wget http://ftp.ruby-lang.org/pub/ruby/2.6/ruby-2.6.6.tar.gz
+tar -xzvf ruby-2.6.6.tar.gz
+cd ruby-2.6.6/
+./configure
+make
+sudo make install
 ruby -v
 
 ###################################################
