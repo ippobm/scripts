@@ -2,10 +2,7 @@
 sudo apt install git -y
 
 # Install PostgreSQL
-echo "deb http://apt.postgresql.org/pub/repos/apt/ 20.04-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install postgresql-10 postgresql-contrib-10 libpq-dev
+sudo apt install postgresql postgresql-contrib libpq-dev -y	
 
 # Install Redis
 sudo apt install redis-server -y
