@@ -126,8 +126,8 @@ sudo -u postgres psql -c "ALTER USER ippo PASSWORD 'syncm13'"
 # Install Nokogiri
 ###################################################
 
-sudo apt-get install libgmp-dev
-sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
+sudo apt-get install libgmp-dev -y
+sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev -y
 gem install nokogiri
 
 ###################################################
