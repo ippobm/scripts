@@ -111,6 +111,7 @@ sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 
 sudo apt install postgresql postgresql-contrib libpq-dev -y
 sudo apt install pgadmin4 -y
+sudo service postgresql start
 
 ###################################################
 # Create PostgreSQL user
