@@ -101,6 +101,8 @@ gem install rails -v 5.2.4.2
 ###################################################
 
 sudo apt install redis-server -y
+sudo service redis-server start
+sudo systemctl enable redis-server 
 
 ###################################################
 # Install PostgreSQL
@@ -112,6 +114,7 @@ sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 sudo apt install postgresql postgresql-contrib libpq-dev -y
 sudo apt install pgadmin4 -y
 sudo service postgresql start
+sudo systemctl enable postgresql
 
 ###################################################
 # Create PostgreSQL user
