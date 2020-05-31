@@ -30,6 +30,7 @@ sudo apt-get update -y
 
 ## Install rabbitmq-server and its dependencies
 sudo apt-get install rabbitmq-server -y --fix-missing
+sudo service rabbitmq-server start
 
 # rabbitmqctl add_user should be used to create a user, 
 # rabbitmqctl set_permissions to grant the user the desired permissions and finally, 
