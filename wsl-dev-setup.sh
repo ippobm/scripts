@@ -97,7 +97,6 @@ gem install rails -v 5.2.4.2
 
 sudo apt install redis-server -y
 sudo service redis-server start
-sudo systemctl enable redis-server 
 
 ###################################################
 # Install PostgreSQL
@@ -108,7 +107,6 @@ sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 
 sudo apt install postgresql postgresql-contrib libpq-dev -y
 sudo service postgresql start
-sudo systemctl enable postgresql
 
 ###################################################
 # Create PostgreSQL user
@@ -125,26 +123,6 @@ sudo -u postgres psql -c "CREATE DATABASE backend"
 sudo apt-get install libgmp-dev -y
 sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev -y
 gem install nokogiri
-
-###################################################
-# Install Nginx + Passenger
-###################################################
-
-sudo apt-get install nginx -y
-
-# Install our PGP key and add HTTPS support for APT
-sudo apt-get install -y dirmngr gnupg
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
-sudo apt-get install -y apt-transport-https ca-certificates
-
-# Add our APT repository
-sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger focal main > /etc/apt/sources.list.d/passenger.list'
-sudo apt-get update
-
-# Install Passenger + Nginx module
-sudo apt-get install -y libnginx-mod-http-passenger
-
-sudo service nginx restart
 
 ###################################################
 
