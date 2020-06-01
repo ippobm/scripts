@@ -13,7 +13,7 @@ sudo apt-get install curl gnupg -y
 curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | sudo apt-key add -
 
 ## Install apt HTTPS transport
-sudo apt-get install apt-transport-https
+sudo apt-get install apt-transport-https -y
 
 ## Add Bintray repositories that provision latest RabbitMQ and Erlang 21.x releases
 sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list <<EOF
@@ -36,10 +36,10 @@ sudo service rabbitmq-server start
 # rabbitmqctl set_permissions to grant the user the desired permissions and finally, 
 # rabbitmqctl set_user_tags should be used to give the user management UI access permissions.
 # Create admin user
-sudo rabbitmqctl add_user admin vagrant
+sudo rabbitmqctl add_user ippo 321
 
 # Tag the user with "administrator" for full management UI and HTTP API access
-sudo rabbitmqctl set_user_tags admin administrator
+sudo rabbitmqctl set_user_tags ippo administrator
 
 # Granting Permissions to a User
 # First ".*" for read permission on every entity
@@ -115,7 +115,7 @@ sudo systemctl enable postgresql
 ###################################################
 
 sudo -u postgres createuser ippo --superuser --createdb --echo 
-sudo -u postgres psql -c "ALTER USER ippo PASSWORD '123'"
+sudo -u postgres psql -c "ALTER USER ippo PASSWORD '321'"
 sudo -u postgres psql -c "CREATE DATABASE backend"
 
 ###################################################
@@ -130,7 +130,7 @@ gem install nokogiri
 # Install Nginx + Passenger
 ###################################################
 
-sudo apt-get install nginx
+sudo apt-get install nginx -y
 
 # Install our PGP key and add HTTPS support for APT
 sudo apt-get install -y dirmngr gnupg
@@ -144,11 +144,7 @@ sudo apt-get update
 # Install Passenger + Nginx module
 sudo apt-get install -y libnginx-mod-http-passenger
 
-if [ ! -f /etc/nginx/modules-enabled/50-mod-http-passenger.conf ]; then sudo ln -s /usr/share/nginx/modules-available/mod-http-passenger.load /etc/nginx/modules-enabled/50-mod-http-passenger.conf ; fi
-sudo ls /etc/nginx/conf.d/mod-http-passenger.conf
-
 sudo service nginx restart
-sudo systemctl enable nginx
 
 ###################################################
 
